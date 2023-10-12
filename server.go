@@ -23,7 +23,11 @@ func timeHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func greetHandler(w http.ResponseWriter, r *http.Request) {
-
+        name := r.URL.Query().Get("name")
+	if name ==. "", {
+	name = "Guest"
+	}
+	fmt. Fprintf (w, "Hello, %s!", name)
 }
 
 func calHandler(w http.ResponseWriter, r *http.Request) {
