@@ -4,31 +4,32 @@ import (
 	"fmt"
 	"net/http"
 	"strconv"
+	"time"
 )
 
 func helloHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintln(w,"Hello, World!")
+	fmt.Fprintln(w, "Hello, World!")
 }
 
 func aboutHandler(w http.ResponseWriter, r *http.Request) {
-
+	fmt.Fprintln(w, "This is an about page.")
 }
 
 func contactHandler(w http.ResponseWriter, r *http.Request) {
-
+	fmt.Fprintln(w, "You can contact us at contact@example.com.")
 }
 
 func timeHandler(w http.ResponseWriter, r *http.Request) {
-currentTime := time. Now() . Format ("2006-01-02 15:04:05") 
-fmt. Fprintf (w,"Current time: %s", currentTime)
+	currentTime := time.Now().Format("2006-01-02 15:04:05")
+	fmt.Fprintf(w, "Current time: %s", currentTime)
 }
 
 func greetHandler(w http.ResponseWriter, r *http.Request) {
-        name := r.URL.Query().Get("name")
-	if name ==. "", {
-	name = "Guest"
+	name := r.URL.Query().Get("name")
+	if name == "" {
+		name = "Guest"
 	}
-	fmt. Fprintf (w, "Hello, %s!", name)
+	fmt.Fprintf(w, "Hello, %s!", name)
 }
 
 func calHandler(w http.ResponseWriter, r *http.Request) {
